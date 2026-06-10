@@ -1,0 +1,35 @@
+package testData;
+
+import org.testng.annotations.Test;
+
+import java.sql.*;
+import java.util.List;
+
+public class ReadFromDatabase {
+
+    public static String getUsername;
+    public static String getPassword;
+
+    public static void dbConnection() {
+
+        String dbUrl = "jdbc:mysql://102.222.124.22:3306/ndosian6b8b7_teaching";
+        String dbUsername = "ndosian6b8b7_teaching";
+        String dbPassword = "^{SF0a=#~[~p)@l1";
+
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword)) {
+            try (Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE user_id = 1")){
+
+                while (resultSet.next()){
+                    getUsername = resultSet.getString("email");
+                    getPassword = resultSet.getString("password");
+                    System.out.println("Email "+getUsername + ", Password "+getPassword);
+                }
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("Error executing query: " + e.getMessage());
+        }
+    }
+}
