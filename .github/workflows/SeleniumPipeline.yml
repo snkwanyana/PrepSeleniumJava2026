@@ -1,4 +1,4 @@
-name: Selenium_Pipeline
+name: Selenium Pipeline
 on:
   push:
     branches: [main]
