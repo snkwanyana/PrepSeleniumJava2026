@@ -1,0 +1,6 @@
+name: Selenium_Pipeline
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
