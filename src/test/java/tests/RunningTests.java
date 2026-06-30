@@ -20,10 +20,14 @@ public class RunningTests extends Base {
     public void loginTest(){
         homeMenuPage.verifyHomePageIsLoaded();
         homeMenuPage.clickLoginButton();
-        loginPage.enterUsername(ReadFromDatabase.getUsername);
-        loginPage.enterPassword(ReadFromDatabase.getPassword);
+//        loginPage.enterUsername(ReadFromDatabase.getUsername);
+//        loginPage.enterPassword(ReadFromDatabase.getPassword);
+        loginPage.enterUsername("nkwanyana@gmail.com");
+        loginPage.enterPassword("#12345678");
         loginPage.clickLoginButton();
         welcomePage.validateLoginScreen();
+        //Listener.extentTest.addScreenCaptureFromPath(TakeScreenshots.takesSnapShot(driver,"LoginScreen"));
+
     }
 
 
@@ -31,7 +35,7 @@ public class RunningTests extends Base {
     public void contactListNameTest() {
         contactUsPage.clickContactUsMenu();
         contactUsPage.getContactMethodList();
-        Listener.extentTest.addScreenCaptureFromPath(TakeScreenshots.takesSnapShot(driver,"Contactscreen"));
+        //Listener.extentTest.addScreenCaptureFromPath(TakeScreenshots.takesSnapShot(driver,"Contactscreen"));
 //        TakeScreenshots.takesSnapShot(driver,"Contact screen");
     }
 

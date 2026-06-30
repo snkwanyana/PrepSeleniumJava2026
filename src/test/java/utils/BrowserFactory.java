@@ -21,9 +21,9 @@ public class BrowserFactory {
 
         if (browserType.equalsIgnoreCase("chrome")){
             ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless=new");
             options.addArguments("--incognito");
-            options.addArguments("--headless");
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
         }else if (browserType.equalsIgnoreCase("firefox")){
             driver = new FirefoxDriver();
         }else if (browserType.equalsIgnoreCase("Safari")){
