@@ -42,6 +42,5 @@ public class Listener implements ITestListener {
     @Override
     public void onStart(ITestContext context){
         extent = ExtentReportMananger.extentReports();
-        ExtentTest test = extent.createTest("Login Test");
     }
 }

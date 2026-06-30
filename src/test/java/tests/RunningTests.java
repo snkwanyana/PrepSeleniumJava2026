@@ -26,8 +26,15 @@ public class RunningTests extends Base {
         loginPage.enterPassword("#12345678");
         loginPage.clickLoginButton();
         welcomePage.validateLoginScreen();
-        //Listener.extentTest.addScreenCaptureFromPath(TakeScreenshots.takesSnapShot(driver,"LoginScreen"));
 
+
+        // Capture and attach screenshot to Extent Report
+        try {
+            String screenshotPath = TakeScreenshots.takesSnapShot(driver, "LoginScreen");
+            Listener.extentTest.addScreenCaptureFromPath(screenshotPath, "Login Screen");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -35,8 +42,8 @@ public class RunningTests extends Base {
     public void contactListNameTest() {
         contactUsPage.clickContactUsMenu();
         contactUsPage.getContactMethodList();
-        //Listener.extentTest.addScreenCaptureFromPath(TakeScreenshots.takesSnapShot(driver,"Contactscreen"));
-//        TakeScreenshots.takesSnapShot(driver,"Contact screen");
+
+
     }
 
     @AfterClass
