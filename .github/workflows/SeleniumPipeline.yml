@@ -23,3 +23,10 @@ jobs:
 
       - name: Build and Run Tests
         run: mvn clean test -Dheadless=true
+
+      - name: Upload Selenium Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: selenium-report
+          path: Reports/
