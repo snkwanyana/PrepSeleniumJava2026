@@ -30,3 +30,31 @@ jobs:
         with:
           name: selenium-report
           path: Reports/
+
+      - name: Send Email with the Report
+        if: Always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            secure: true
+
+            username: ${{ secrets.MY_SECRET_EMAIL }}
+            password: ${{ secrets.MY_SECRET_PASSWORD }}
+
+            subject: Selenium Test Report
+
+#            to: ${{ secrets.EMAIL_TO }}
+#            from: ${{ secrets.EMAIL_FROM }}
+            to: sibusison@ndosiautomation.co.za
+            from: ${{ secrets.MY_SECRET_EMAIL }}
+
+            body: |
+              Hello,
+
+              The Selenium test report is attached.
+
+              Regards,
+              Your CI/CD Pipeline
+
+            attachments: Reports/NdosiAutomationReport.html
